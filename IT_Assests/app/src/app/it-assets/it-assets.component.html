@@ -1,0 +1,98 @@
+<div class="container-fluid">
+    <h3 class="text-center">IT Section  Assest Data Entry System</h3>
+    <div class="row bg-primary">
+
+        <div class="col-md-1 text-center font-weight-bold">Section</div>
+        <div class="col-md-5">
+          <input type="text" class="form-control"  [(ngModel)]="section" placeholder="Example : AO Planning ">
+        </div>
+
+        <div class="col-md-1 text-center font-weight-bold">User</div>
+        <div class="col-md-5">
+          <input type="text" class="form-control"  [(ngModel)]="user" placeholder="Example : AO(Plg)">
+        </div>
+       
+       
+      </div>
+    <div class="row form">
+  <form (submit)="addData()"  class="form-inline">
+        <div class="form-group mb-2">
+            <label for="type">Type</label>
+            <!-- <input type="text"  class="form-control" name="Type" [(ngModel)]="dataRow.Type" placeholder=" Ex: CPU"> -->
+            <select name="Type" [(ngModel)]="dataRow.Type" class="form-control">
+                <option value="Laptop">Laptop</option>
+                <option value="CPU">CPU</option>
+                <option value="Monitor">Monitor</option>
+                <option value="Printer">Printer</option>
+                <option value="Laptop">Scanner</option>
+                <option value="Laptop">KeyBoard</option>
+                <option value="Laptop">Mouse</option>
+            </select>
+        </div>
+        <div class="form-group mb-2">
+            <label for="type">Make</label>
+            <input type="text"  class="form-control" name="Make" [(ngModel)]="dataRow.Make" placeholder=" Ex: CANON">
+        </div>
+        <div class="form-group mb-2">
+            <label for="type">ModelNo</label>
+            <input type="text"  class="form-control" name="Model" [(ngModel)]="dataRow.Model" placeholder=" Ex: MF4450">
+        </div>
+        
+        <div class="form-group mb-2">
+            <label for="type">SerialNo</label>
+            <input type="text"  class="form-control" name="SerailNo" [(ngModel)]="dataRow.SerailNo">
+        </div>
+        <div class="form-group mb-2">
+            <label for="type">Remark</label>
+            <input type="text"  class="form-control" name="Remark" [(ngModel)]="dataRow.Remark">
+        </div>
+        <!-- <div class="form-group">
+            <label for="type">User</label>
+            <input type="text"  class="form-control" name="User" [(ngModel)]="dataRow.User">
+        </div>
+        <div class="form-group">
+            <label for="type">Section</label>
+            <input type="text"  class="form-control" name="Section" [(ngModel)]="dataRow.Section">
+        </div> -->
+        <div class="form-group mb-2">
+            <input type="hidden" name="_id"  value="{{dataRow._id}}">
+            <button class="btn btn-success"><i class="fa fa-save"> </i> {{dataRow._id ? "Update":"Save"}}</button>
+        </div>
+
+    </form>
+
+    </div>  
+  
+    <div *ngIf="dataList" class="datalist">
+         <div class="row bg-secondary text-white">
+             <div class="col-md-2">Type</div>
+             <div class="col-md-2">Make</div>
+             <div class="col-md-2">Serial No</div>
+             <div class="col-md-3">Remark</div>
+             <div class="col-md-2">User</div>
+             <div class="col-md-1"></div>
+
+         </div>   
+        <div class="row" *ngFor="let x of dataList.data"> 
+            <div class="col-md-2">
+                {{x.Type}}
+            </div>
+            <div class="col-md-2">
+                {{x.Make}} - {{x.Model}} 
+            </div>
+            <div class="col-md-2">
+                {{x.SerailNo}}
+            </div>
+            <div class="col-md-3">
+                {{x.Remark}}
+            </div>
+            <div class="col-md-2">
+                {{x.User}}/{{x.Section}}
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary" (click)="edit(x)"> <i class="fa fa-edit"></i>  Edit</button>
+            </div>
+        </div>
+
+    </div>
+</div>
