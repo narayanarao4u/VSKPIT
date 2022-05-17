@@ -1,4 +1,4 @@
-const Document = require('../models/data.model').Assest;
+const Document = require('../models/custDailing.model').custDailing;
 
 
 exports.index =  function(req, res){
@@ -21,7 +21,7 @@ exports.findid =  function(req, res){
 
 }
 
-exports.find =  function(req, res){
+exports.find =  function(req, res){  
     Document.find(req.body, (err, result) => {
         if (!err)
             res.json({ msg: 'Data Retrieve Success', data: result });

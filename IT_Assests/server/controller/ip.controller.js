@@ -1,4 +1,4 @@
-const Document = require('../models/data.model').Assest;
+const Document = require('../models/ip.model').ipData;
 
 
 exports.index =  function(req, res){

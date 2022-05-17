@@ -43,5 +43,8 @@ app.get('/',(req,res)=>{
 let apiRoutes = require("./api-route");
 app.use('/api', apiRoutes);
 
+let apiTele = require("./api-telephone")
+app.use('/api-tele', apiTele);
+
 const port = process.env.PORT || 3000;
 app.listen(port, ()=>console.log(`listening port : ${port}`));
